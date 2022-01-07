@@ -2,6 +2,7 @@ package com.amigoscode.testing.payment;
 
 import com.amigoscode.testing.customer.Customer;
 import com.amigoscode.testing.customer.CustomerRegistrationRequest;
+import com.amigoscode.testing.util.PhoneNumberValidator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,9 @@ class PaymentIntegrationTest {
     @Autowired
     private PaymentRepository paymentRepository;
 
+//    @Autowired
+//    private PhoneNumberValidator phoneNumberValidator;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -36,7 +40,7 @@ class PaymentIntegrationTest {
     void itShouldCreatePaymentSuccessfully() throws Exception {
         // Given a customer
         UUID customerId = UUID.randomUUID();
-        Customer customer = new Customer(customerId, "James", "0000000");
+        Customer customer = new Customer(customerId, "James", "13027654321");
 
         CustomerRegistrationRequest customerRegistrationRequest = new CustomerRegistrationRequest(customer);
 
